@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #3a0f1c, #6d1b2a);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Container */
+.container {
+    width: 800px;
+    height: 450px;
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* Image Section */
+.image-section {
+    width: 50%;
+    background-image: url("https://img.freepik.com/premium-photo/red-background-with-light-it_895323-6.jpg?semt=ais_user_personalization&w=740&q=80");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
+.image-section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.image-section p {
+    opacity: 0.85;
+}
+
+/* Form Section */
+.form-section {
+    width: 50%;
+    padding: 40px;
+    position: relative; /* 🔑 VERY IMPORTANT */
+}
+
+/* Toggle */
+.toggle {
+    width: 100%;
+    height: 40px;
+    background: #f1f1f1;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle label {
+    width: 50%;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    z-index: 2;
+    font-weight: 500;
+    color: #6d1b2a;
+}
+
+.slider {
+    width: 50%;
+    height: 40px;
+    background: linear-gradient(135deg, #8b1d2c, #5a0f1c);
+    border-radius: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: 0.4s;
+    z-index: 1;
+}
+
+/* Slider movement */
+#signup:checked ~ .slider {
+    left: 50%;
+}
+
+/* Forms */
+.form {
+    position: absolute;
+    width: 80%;
+    top: 120px;
+    left: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s ease;
+    z-index: 1;
+}
+
+.login-form {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+#signup:checked ~ .login-form {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#signup:checked ~ .signup-form {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+/* Micro-interaction */
+input:focus {
+    border-color: #8b1d2c;
+    box-shadow: 0 0 6px rgba(139,29,44,0.4);
+    outline: none;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #8b1d2c, #5a0f1c);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Blink animation */
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blink {
+    animation: blink 0.6s ease-in-out 3;
+}
